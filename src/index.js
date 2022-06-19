@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from './store';
+import { Provider } from 'react-redux';
+
+// STORE => GLOBALIZED STATE
+
+// ACTION INCREMENT
+
+// REDUCER CHECKS WHICH ACTION TO TAKE AND UPDATE STORE (in slice files)
+
+// DISPATCH -> WHERE IT ACTUALLY EXECUTE THE ACTION (in components)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
