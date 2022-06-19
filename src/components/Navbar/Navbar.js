@@ -5,7 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const Navbar = () => {
+export default function Navbar() {
   return (
     <div className='navbar-container'>
       <AppBar position="sticky" color="inherit">
@@ -19,5 +19,3 @@ const Navbar = () => {
     </div>
   )
 }
-
-export default Navbar

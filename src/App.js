@@ -7,18 +7,19 @@ import { getMonth } from './adapter'
 import Navbar from './components/Navbar/Navbar'
 import Week from './components/Calendar/Week'
 import DatePicker from './components/DatePicker/DatePicker'
+import NewEventForm from './components/NewEvent/NewEventForm';
 
-function App() {
-  // const [currentWeek, setCurrentWeek] = useState(getMonth())
+export default function App() {
   return (
     <div className="App">
       <Navbar />
       <div className='calendar-container'>
-        <DatePicker />
+        <div className='sidebar-container'>
+          <NewEventForm />
+          <DatePicker />
+        </div>
         <Week />
       </div>
     </div>
   );
 }
-
-export default App;

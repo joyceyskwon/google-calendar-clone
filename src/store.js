@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import calendarReducer from './components/Calendar/CalendarSlice'
+import datePickerReducer from './components/DatePicker/DatePickerSlice'
 
 export default configureStore({
   reducer: {
-    // add reducers like so,
     calendar: calendarReducer,
+    datePicker: datePickerReducer,
   }
 })
