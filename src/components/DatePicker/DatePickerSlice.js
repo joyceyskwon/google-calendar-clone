@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
-import dayjs from 'dayjs'
+import moment from 'moment'
+
+
 
 export const datePickerSlice = createSlice({
   name: 'datePicker',
   initialState: {
-    selectedDate: new Date(),
+    selectedDate: moment().format(),
   },
   reducers: {
     setSelectedDate: (state, action) => {

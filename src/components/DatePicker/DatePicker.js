@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
+import moment from 'moment'
 import { useSelector, useDispatch } from 'react-redux'
-import { setSelectedDate } from './DatePickerSlice'
+import { setSelectedDate } from '../Calendar/CalendarSlice'
 import { DayPicker } from 'react-day-picker'
 import 'react-day-picker/dist/style.css'
 
 export default function DatePicker() {
-  const selectedDate = useSelector(state => state.datePicker.selectedDate)
+  const selectedDate = useSelector(state => state.calendar.selectedDate)
   const dispatch = useDispatch()
-  console.log(selectedDate, ': selected date')
 
   const onClick = e => {
-    let selectedStr = e.toString()
-    dispatch(setSelectedDate(selectedStr))
+    let formattedDate = moment(e).format('YYYY-MM-DD HH:mm:ss')
+    dispatch(setSelectedDate(formattedDate))
   }
 
   return (
