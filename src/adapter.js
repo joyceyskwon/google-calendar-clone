@@ -15,29 +15,24 @@ export const getMonth = (month = moment().month()) => {
 }
 
 export const getCurrentWeekIndex = (monthArr) => {
-  // let currentWeek = monthArr.find(week => week.find(day => day.includes(moment().format('YYYY-MM-DD'))))
-  // console.log(currentWeek, ': current week')
-  let answerIdx
+  let foundDayIdx
+  let m = moment().set({hour:0,minute:0,second:0,millisecond:0})
+  m.toISOString()
+  let formattedMoment = m.format()
   for (let i = 0; i < monthArr.length; i++) {
-    answerIdx = monthArr[i].find(day => {
-      if (day.includes(moment().format('YYYY-MM-DD'))) {
-        return i
-      }
-    })
-    // let index = monthArr[i].indexOf(currentWeek)
-    if (answerIdx > -1) {
-      return [i, answerIdx]
+    foundDayIdx = monthArr[i].indexOf(formattedMoment)
+    if (foundDayIdx > -1) {
+      return i // returns which index of the month current day is in
     }
   }
-  console.log(answerIdx, ': answerIdx')
 }
 
-let currentWeekIdx = 0
 let currentMonthNumber = moment().month()
 
 export const displaySelectedWeek = (direction) => {
+  let currentWeekIdx = getCurrentWeekIndex(getMonth())
   if (!direction && currentWeekIdx < 34) {
-    return getMonth().slice(currentWeekIdx, currentWeekIdx + 7)
+    return getMonth()[currentWeekIdx]
   }
   // if (direction === 'prev' && currentWeekIdx < 0) {
   //   currentMonthNumber = moment().subtract(1, 'month').month()

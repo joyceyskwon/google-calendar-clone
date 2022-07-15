@@ -11,6 +11,7 @@ import { getMonth } from './adapter'
 export default function App() {
   const dispatch = useDispatch()
   const monthIndex = useSelector(state => state.calendar.monthIndex)
+  const events = useSelector(state => state.calendar.events)
   useEffect(() => {
     dispatch(setCurrentMonth(getMonth(monthIndex)))
   }, [monthIndex])
